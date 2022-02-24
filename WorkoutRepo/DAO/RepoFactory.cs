@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WorkoutRepo
+namespace WorkoutRepo.DAO
 {
-    public class Class1
+    public static class RepoFactory
     {
+        public static IRepo GetRepo() => new FileRepo();
     }
 }
