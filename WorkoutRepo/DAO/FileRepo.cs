@@ -26,17 +26,27 @@ namespace WorkoutRepo.DAO
                 File.Create(pathWorkouts).Close();
             }
         }
+        /*
+            NEEDS TO BE ADDED:
+                -UPDATE EXERCISE SYSTEM
+                    I need to create a system that will add sets with weights
+                    to an exsisting exercises so we can track progress...
+
+                    - ALTERNATIVE SOLUTIONS:
+                        -EVENTS AND DELEGATES WITH ExistingExerciseEventArgs
+                -TRY AND CATCHING ERRRORS
+         */
 
         public void AddExercise(Exercise exercise)
         {
-            IList<Exercise> exercises = GetExercises();
+            HashSet<Exercise> exercises = GetExercises().ToHashSet();
             exercises.Add(exercise);
             File.WriteAllLines(pathExercises, exercises.Select(e => e.FormatForFileLine()));
         }
 
         public void AddMultipleExercises(List<Exercise> exercises)
         {
-            IList<Exercise> orginalExercises = GetExercises();
+            HashSet<Exercise> orginalExercises = GetExercises().ToHashSet();
             exercises.ForEach(e => orginalExercises.Add(e));
             File.WriteAllLines(pathExercises, orginalExercises.Select(e => e.FormatForFileLine()));
         }
