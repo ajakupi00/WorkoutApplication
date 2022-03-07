@@ -44,7 +44,9 @@
     <Compile Include="DAO\FileRepo.cs" />
     <Compile Include="DAO\IRepo.cs" />
     <Compile Include="DAO\RepoFactory.cs" />
+    <Compile Include="Events\ErrorEventArgs.cs" />
     <Compile Include="Models\Exercise.cs" />
+    <Compile Include="Models\ExerciseManager.cs" />
     <Compile Include="Models\Set.cs" />
     <Compile Include="Models\Workout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -13,63 +13,61 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
+            ErrorDelegate onError = Inform;
+            Exercise bench = new Exercise()
+            {
+                Id = 1,
+                ExerciseName = "Bench",
+                Sets = new Dictionary<DateTime, List<Set>>()
+                {
+                    {DateTime.Now, new List<Set>()
+                    {
+                        new Set()
+                        {
+                            Id = 1,Reps = 12, Weight = 40
+                        },
+                        new Set
+                        {
+                            Id = 2, Reps = 4, Weight = 120
+                        }
+                    }
+                    },
+                     {DateTime.Now.AddDays(1), new List<Set>()
+                    {
+                        new Set()
+                        {
+                            Id = 1,Reps = 12, Weight = 40
+                        },
+                        new Set
+                        {
+                            Id = 2, Reps = 4, Weight = 120
+                        }
+                    }
+
+                }
+            }
+            };
             IRepo repo = RepoFactory.GetRepo();
-            Exercise benchpress = new Exercise()
+            try
             {
-                ExerciseName = "Benchpress",
-                Date = DateTime.Now,
-                Sets = new List<Set>()
-                {
-                    new Set()
-                    {
-                        Reps = 12,
-                        Weight = 40
-                    },
-                    new Set()
-                    {
-                        Reps = 8,
-                        Weight = 60
-                    },
-                    new Set()
-                    {
-                        Reps = 8,
-                        Weight = 72.5
-                    }
-                },
-            };
-            Exercise squat = new Exercise()
+                repo.AddExercise(bench);
+                repo.GetExercises().ToList().ForEach(e => Console.WriteLine(e));
+            }
+            catch (Exception e)
             {
-                ExerciseName = "Barbell Squat",
-                Date = DateTime.Now,
-                Sets = new List<Set>()
-                {
-                    new Set()
-                    {
-                        Reps = 12,
-                        Weight = 80
-                    },
-                    new Set()
-                    {
-                        Reps = 8,
-                        Weight = 90.5
-                    },
-                    new Set()
-                    {
-                        Reps = 5,
-                        Weight = 125
-                    }
-                },
-            };
-            Workout workout = new Workout()
-            {
-                Date = DateTime.Now,
-                Exercises = new List<Exercise>() { benchpress, squat },
-                Quality = IndexOfQuality.EXCELLENT
-            };
-            repo.AddWorkout(workout);
-            IList<Workout> workouts = repo.GetWorkouts();
-            workouts.ToList().ForEach(w => Console.WriteLine(w));
+                onError(e.Message);
+            }
+
 
         }
+
+        private static void Inform(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
+        private delegate void ErrorDelegate(string message);
     }
 }

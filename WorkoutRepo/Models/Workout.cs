@@ -22,7 +22,7 @@ namespace WorkoutRepo.Models
             num_of_exercises++;
             id = id_generator++;
         }
-        private const string date_format = "dd:mm:yyyy";
+        private const string date_format = "dd.MM.yyyy";
         public List<Exercise> Exercises { get; set; }
         public DateTime Date { get; set; }
         public IndexOfQuality Quality { get; set; }

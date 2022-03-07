@@ -8,29 +8,26 @@ namespace WorkoutRepo
 {
     public class Set
     {
-        private static int id_generator = 1;
-        private int id;
+
         private const string weight_unit = "kg";
         private const char del = '_';
-        public Set()
-        {
-            id = id_generator++;
-        }
+        
         public short Reps { get; set; }
         public double Weight { get; set; }
-        public int Id { get => id; set => id = value; }
+        public int Id { get; set; }
 
         public override string ToString()
-            => $"|{id}. set: {Reps} x {Weight}{weight_unit}|";
+            => $"|{Id}. set: {Reps} x {Weight}{weight_unit}|";
 
         internal string FormatForFileLine()
-         => $"{id}{del}{Reps}{del}{Weight}{del}{weight_unit}";
+         => $"{Id}{del}{Reps}{del}{Weight}{del}{weight_unit}";
 
         internal static Set ParseFromFileLine(string line)
         {
             string[] details = line.Split(del);
             return new Set
             {
+                Id = int.Parse(details[0]),
                 Reps = short.Parse(details[1]),
                 Weight = double.Parse(details[2])
 
