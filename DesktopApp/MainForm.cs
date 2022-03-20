@@ -23,6 +23,12 @@ namespace DesktopApp
 
         private void mainForm_Load(object sender, EventArgs e)
         {
+            UpdateMainForm();
+        }
+
+        private void UpdateMainForm()
+        {
+            lbExercises.Items.Clear();
             exercises = repo.GetExercises().ToList();
             foreach (Exercise ex in exercises)
             {
@@ -47,6 +53,16 @@ namespace DesktopApp
         {
             AddExerciseForm exerciseForm = new AddExerciseForm(exercises);
             exerciseForm.Show();
+        }
+
+        private void btnAddWorkout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            UpdateMainForm();
         }
     }
 }

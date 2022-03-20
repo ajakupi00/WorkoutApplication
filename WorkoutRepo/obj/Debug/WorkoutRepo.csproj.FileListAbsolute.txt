@@ -1,6 +1,6 @@
-C:\Users\arjan\source\repos\WorkoutApplication\WorkoutRepo\obj\Debug\WorkoutRepo.csproj.AssemblyReference.cache
-C:\Users\arjan\source\repos\WorkoutApplication\WorkoutRepo\obj\Debug\WorkoutRepo.csproj.CoreCompileInputs.cache
 C:\Users\arjan\source\repos\WorkoutApplication\WorkoutRepo\bin\Debug\WorkoutRepo.dll
 C:\Users\arjan\source\repos\WorkoutApplication\WorkoutRepo\bin\Debug\WorkoutRepo.pdb
+C:\Users\arjan\source\repos\WorkoutApplication\WorkoutRepo\obj\Debug\WorkoutRepo.csproj.AssemblyReference.cache
+C:\Users\arjan\source\repos\WorkoutApplication\WorkoutRepo\obj\Debug\WorkoutRepo.csproj.CoreCompileInputs.cache
 C:\Users\arjan\source\repos\WorkoutApplication\WorkoutRepo\obj\Debug\WorkoutRepo.dll
 C:\Users\arjan\source\repos\WorkoutApplication\WorkoutRepo\obj\Debug\WorkoutRepo.pdb
